@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from 'react'
+import Child from './Child'
 function App() {
+
+  let [data, setdata] = useState(20)
+  let [arr, setarray] = useState([1, 2, 3, 4, 5, 6])
+  let [arrobj, setarrayobj] = useState(
+   [ 
+     { name: "asad", age: "12" },
+    { name: "omer", age: "12" },
+    { name: "Ali", age: "15" },
+    { name: "Smit", age: "no age" },
+  ]
+  
+  )
+
+  console.log("|data ",arrobj)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Topic Function Based</h1>
+      {/* <h2>{data}</h2>
+      <button onClick={() => setdata(++data)}>Change Data</button>
+
+      
+      {arr.map((v, i) => {
+        return (
+          <div key={i}>
+            {v}
+          </div>
+        )
+      })} */}
+
+      {/* {arrobj.map((v,i)=>{
+        return(
+          <div>
+            {v.name} + {v.age}
+          </div>
+        )
+      })} */}
+      <button onClick={()=>setdata(++data)}>Add</button>
+      <Child getdata={data} 
+      setfunc={setdata}
+       dataobj={arrobj }
+        setdataobj={setarrayobj}
+        
+        />
+
+
     </div>
-  );
+  )
 }
 
 export default App;
